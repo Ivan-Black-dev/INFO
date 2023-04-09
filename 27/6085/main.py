@@ -21,7 +21,7 @@ with open('B.txt') as file:
     f = [int(i) for i in file.readlines()]
 
 d = [[0 for i in range(0, 6+1)] for i in range(0, 8+1)]
-f1 = f[15:]
+f1 = f[15s:]
 
 count = 0
 for i in range(len(f1)):
