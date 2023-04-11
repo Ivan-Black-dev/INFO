@@ -1,27 +1,22 @@
+def p(s):
+    countPos = 0
+    maxPos = 0
+    for c in set(s):
+        r = s.split(c)[1:-1]
+        for i in r:
+            if i:
+                countPos += 1
+                maxPos = max(maxPos, len(max(r, key=len)))
+    return maxPos, countPos
+
 with open('24.txt') as file:
     lines = [i.replace('\n', '') for i in file.readlines()]
 
-def proc(s):
-    cCp = 0
-    maxLen = 0
-    for cr in set(s):
-        line = s
-        for i in set(s):
-            if cr != i:
-                line = line.replace(i, '*')
-        line = line.strip('*')
-        cCp += int(line.count(cr)/2)
-        lenn = 0
-        while '*'*lenn in line:
-            lenn += 1
-        maxLen = max(maxLen, lenn+1)
-    return (maxLen, cCp)
 
-
-maxLen = 0
-c = 0
-for i in lines:
-    Len, cCp = proc(i)
-    maxLen = max(maxLen, Len)
-    c += cCp
-print(maxLen, c)
+maxPosGlobal = 0
+countPos = 0
+for line in lines:
+    maxPos, count = p(line)
+    maxPosGlobal = max(maxPosGlobal, maxPos)
+    countPos += count
+print(maxPosGlobal+2, countPos)
