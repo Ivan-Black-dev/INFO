@@ -16,7 +16,8 @@ with open('24.txt') as file:
 maxPosGlobal = 0
 countPos = 0
 for line in lines:
-    maxPos, count = p(line)
-    maxPosGlobal = max(maxPosGlobal, maxPos)
-    countPos += count
+    if line.count('R') < 30:
+        maxPos, count = p(line)
+        maxPosGlobal = max(maxPosGlobal, maxPos)
+        countPos += count
 print(maxPosGlobal+2, countPos)

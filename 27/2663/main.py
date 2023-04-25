@@ -1,4 +1,5 @@
-with open('27_B.txt') as file:
+#2663
+with open('27_A.txt') as file:
     n = int(file.readline())
     pars = []
     for line in file.readlines():
@@ -14,5 +15,5 @@ for par in pars:
     minSum += min(par)
 
 minOst[0] = 0
-#print(minSum, minOst)
+print(minSum, minOst)
 print(minSum + minOst[3-(minSum%k)])
